@@ -19,7 +19,7 @@ TODO
 
 ## License
 
-jade-ngtemplates-brunch - Jade AngularJS templates support to brunch
+jade-ngtemplates-brunch - Adds Jade AngularJS templates support to brunch
 
 Written in 2014 by Kagami Hiiragi <kagami@genshiken.org>
 
