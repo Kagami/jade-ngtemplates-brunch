@@ -23,7 +23,6 @@ module.exports = class JadeNgtemplates
     collapseWhitespace: true
     collapseBooleanAttributes: true
     removeAttributeQuotes: true
-    removeRedundantAttributes: true
     useShortDoctype: true
     removeEmptyAttributes: true
     removeScriptTypeAttributes: true
@@ -59,7 +58,7 @@ module.exports = class JadeNgtemplates
     ###
     Return module config for the given file path.
     ###
-    _.find @modulesConfig, (m) -> m.pattern.exec(path)
+    _.find @modulesConfig, (m) -> m.pattern.test(path)
 
   wrapWithTemplateCache: (data, path) ->
     ###
@@ -75,6 +74,14 @@ module.exports = class JadeNgtemplates
       "\n  $templateCache.put('#{url}', '#{data}');"
 
   compile: (data, path, callback) ->
+    # NOTE: Process only specified templates, by default brunch will
+    # pass all files with jade extension.
+    # Also we can't use `@pattern` plugin option because we have a list
+    # of patterns.
+    isTemplate = _.any @modulesConfig, (m) -> m.pattern.test(path)
+    unless isTemplate
+      callback null, ""
+      return
     # Compile single template.
     try
       templateFn = jade.compile(data, @jadeOptions)
