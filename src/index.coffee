@@ -10,7 +10,7 @@ module.exports = class JadeNgtemplates
 
   DEFAULT_MODULE_CONFIG:
     name: "partials"
-    pattern: /^app[\/\\].*\.jade$/
+    pattern: /^app[\/\\]/
     url: (path) ->
       path.replace /\\/g, "/"  # Convert Window-like paths to Unix-like
       "/#{path}"
