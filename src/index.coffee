@@ -20,7 +20,6 @@ module.exports = class JadeNgtemplates
     removeComments: true
     removeCommentsFromCDATA: true
     removeCDATASectionsFromCDATA: true
-    collapseWhitespace: true
     collapseBooleanAttributes: true
     removeAttributeQuotes: true
     useShortDoctype: true
