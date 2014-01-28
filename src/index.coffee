@@ -49,10 +49,10 @@ module.exports = class JadeNgtemplates
       htmlminConfig = pluginConfig?.htmlmin
       if _.isBoolean(htmlminConfig)
         @htmlmin = htmlminConfig
-        @htmlminOptions = @DEFAULT_HTMLMIN_OPTIONS
+        @htmlminOptions = _.extend({}, @DEFAULT_HTMLMIN_OPTIONS)
       else if _.isObject(htmlminConfig)
         @htmlmin = true
-        @htmlminOptions = htmlminConfig
+        @htmlminOptions = _.extend({}, htmlminConfig)
 
   findModuleConfig: (path) ->
     ###
