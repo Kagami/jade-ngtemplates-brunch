@@ -100,7 +100,7 @@ module.exports = class JadeNgtemplates
     moduleName = module.name.replace /'/g, "\\'"
     if @optimize
       "angular.module('#{moduleName}',[])"+
-      ".run(['$templateCache',function(t){#{data}}])"
+      ".run(['$templateCache',function(t){#{data}\n}])"
     else
       """
       angular.module('#{moduleName}', []).run(function($templateCache) {
@@ -121,6 +121,6 @@ module.exports = class JadeNgtemplates
       module = @findModuleConfig(source.path)
       continue unless module?
 
-      data = fs.readFileSync generated.path
+      data = fs.readFileSync generated.path, encoding: "utf8"
       data = @wrapWithModule data, module
       fs.writeFileSync generated.path, data
