@@ -67,6 +67,7 @@ module.exports = class JadeNgtemplates
     urlGenerator = @findModuleConfig(path).url
     url = urlGenerator(path)
     data = data.replace /'/g, "\\'"
+    data = data.replace /\n/g, "\\n"
     if @optimize
       "t.put('#{url}','#{data}');"
     else
