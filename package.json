@@ -1,6 +1,6 @@
 {
   "name": "jade-ngtemplates-brunch",
-  "version": "1.7.5",
+  "version": "1.7.6",
   "description": "Adds Jade AngularJS templates support to brunch.",
   "main": "./lib/index",
   "scripts": {
