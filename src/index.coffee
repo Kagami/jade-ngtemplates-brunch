@@ -83,6 +83,7 @@ module.exports = class JadeNgtemplates
       return
     # Compile single template.
     try
+      @jadeOptions.filename = path
       templateFn = jade.compile(data, @jadeOptions)
       result = templateFn(@jadeLocals)
       if @htmlmin
