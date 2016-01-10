@@ -104,9 +104,9 @@ module.exports = class JadeNgtemplates
       ".run(['$templateCache',function(t){#{data}\n}])"
     else
       """
-      angular.module('#{moduleName}', []).run(function($templateCache) {
+      angular.module('#{moduleName}', []).run(['$templateCache',function($templateCache) {
       #{data}
-      });
+      }]);
 
       """
 
